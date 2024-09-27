@@ -1,0 +1,12 @@
+{% extends 'superhero_theme.html' %}
+
+{% block content %}
+<h1>My Superhero Page</h1>
+<ul class="list-group">
+    {% for hero in heroes %}
+        <li class="list-group-item">
+            <a href="{% url 'hero-detail' hero.name %}">{{ hero.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
