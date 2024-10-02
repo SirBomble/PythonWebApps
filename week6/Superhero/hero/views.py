@@ -17,7 +17,7 @@ class SuperheroDetailView(DetailView):
 
 class SuperheroCreateView(CreateView):
     model = Superhero
-    template_name = 'hero/superhero_form.html'
+    template_name = 'superhero_form.html'
     fields = ['name', 'identity', 'description', 'strength', 'weakness', 'image']
     success_url = reverse_lazy('superhero_list')
     extra_context = {'title': 'Add New Superhero'}
