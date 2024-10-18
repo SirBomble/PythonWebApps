@@ -10,6 +10,7 @@ Documents/Shrinking-World-Pubs
 # Static Assets
 DigitalOcean-static/
 # static/images/CoverArtwork
+staticfiles/
 
 # Hidden files
 # .*
