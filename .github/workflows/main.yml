@@ -23,7 +23,7 @@ jobs:
 
       - name: Add Dokku server to known hosts
         run: |
-          ssh-keyscan -H ssh-paas.tophat.services:3022 >> ~/.ssh/known_hosts
+          ssh-keyscan -P 3022 -H ssh-paas.tophat.services >> ~/.ssh/known_hosts
 
       - name: Push Subtree to Dokku
         run: |
