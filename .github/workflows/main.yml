@@ -1,0 +1,30 @@
+name: 'deploy'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Add Dokku server to known hosts
+        run: |
+          ssh-keyscan -H ssh-paas.tophat.services >> ~/.ssh/known_hosts
+
+      - name: Push Subtree to Dokku
+        run: |
+          git subtree push --prefix=week7/Superhero ssh://dokku@ssh-paas.tophat.services/python-apps main
