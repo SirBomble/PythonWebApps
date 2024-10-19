@@ -27,4 +27,4 @@ jobs:
 
       - name: Push Subtree to Dokku
         run: |
-          git subtree push --prefix=week7/Superhero ssh://dokku@ssh-paas.tophat.services/python-apps main
+          git subtree push --prefix=week7/Superhero ssh://dokku@ssh-paas.tophat.services:3022/python-apps main
