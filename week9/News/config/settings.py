@@ -25,27 +25,23 @@ SECRET_KEY = 'django-insecure-9tpnvsz5y5vy%45zq&m=5)df8yf3@8%-a(jcyt2&em)hj1y7f9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.ondigitalocean.app']
-
-
+ALLOWED_HOSTS = ['8000--main--tan-whippet-83--sirbomble.coder.galifrey.dev','127.0.0.1', 'localhost', '.ondigitalocean.app', 'dosortaworks.galifrey.dev']
+CSRF_TRUSTED_ORIGINS = ['https://8000--main--tan-whippet-83--sirbomble.coder.galifrey.dev','https://dosortaworks.galifrey.dev','https://stingray-app-qiy88.ondigitalocean.app']
 # Application definition
 
 INSTALLED_APPS = [
-    # System apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Third-party
     'crispy_forms',
-
-    # My apps
-    'news',
+    'crispy_bootstrap5',
+    'news'
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,7 +62,7 @@ LOGOUT_REDIRECT_URL = '/'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -110,8 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-# AUTH_USER_MODEL = 'accounts.UserAccount'
 
 
 # Internationalization
