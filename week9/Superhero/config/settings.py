@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-9tpnvsz5y5vy%45zq&m=5)df8yf3@8%-a(jcyt2&em)hj1y7f9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000--main--tan-whippet-83--sirbomble.coder.galifrey.dev','127.0.0.1', 'localhost', '.ondigitalocean.app']
-CSRF_TRUSTED_ORIGINS = ['https://8000--main--tan-whippet-83--sirbomble.coder.galifrey.dev']
+ALLOWED_HOSTS = ['8000--main--tan-whippet-83--sirbomble.coder.galifrey.dev','127.0.0.1', 'localhost', '.ondigitalocean.app', 'dosortaworks.galifrey.dev']
+CSRF_TRUSTED_ORIGINS = ['https://8000--main--tan-whippet-83--sirbomble.coder.galifrey.dev','https://dosortaworks.galifrey.dev','https://stingray-app-qiy88.ondigitalocean.app']
 # Application definition
 
 INSTALLED_APPS = [
