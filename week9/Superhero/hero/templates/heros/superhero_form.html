@@ -1,0 +1,27 @@
+{% extends 'superhero_theme.html' %}
+{% block title %}{% if object %}Edit{% else %}Add{% endif %} Superhero{% endblock title %}
+{% load custom_tags %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field|add_class:"form-control" }}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+                {% if field.errors %}
+                    <div class="text-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="{% url 'superhero_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

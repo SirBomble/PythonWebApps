@@ -1,0 +1,24 @@
+{% extends 'superhero_theme.html' %}
+
+
+{% block title %}
+Article Details
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="card col-lg">
+        <p><strong>Author:</strong> {{ object.blog.author }}</p>
+        <p><strong>Title:</strong> <a href="/article/{{ object.pk }}/">{{ object.title }}</a></p>
+        <p><strong>Body:</strong> {{ object.body }}</p>
+        {% if object.blog.author == user %}
+            <a href="/article/{{ object.pk }}/edit/">Edit</a>
+            <a href="/article/{{ object.pk }}/delete/">Delete</a>
+        {% endif %}
+        <a href="/blog/{{ object.blog.pk }}/">Back to Blog</a>
+    </div>
+</div>
+
+{% endblock content %}

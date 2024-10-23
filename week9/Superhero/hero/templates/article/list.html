@@ -1,0 +1,29 @@
+{% extends 'superhero_theme.html' %}
+
+{% block title %}
+List of Articles
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="card col-lg">
+        {% for article in articles %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/article/{{ article.pk }}">{{ article.title }}</a></h5>
+                <p class="card-text">{{ article.body }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+            <p>
+                <a href="/article/add" class="btn btn-success m-5">Add New Article</a>
+            </p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

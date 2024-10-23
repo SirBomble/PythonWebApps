@@ -1,0 +1,7 @@
+{% extends 'superhero_theme.html' %}
+{% block title %}Logged Out{% endblock title %}
+{% block content %}
+<div class="container mt-4">
+    <a href="{% url 'login' %}" class="btn btn-primary">Login Again</a>
+</div>
+{% endblock %}

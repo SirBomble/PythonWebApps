@@ -1,0 +1,43 @@
+{% extends 'superhero_theme.html' %}
+
+{% block title %}
+Blog Details
+{% endblock title %}
+
+{% block content %}
+
+<div class="row">
+    <div class="card col-lg">
+        <div class="card-header person">
+            Blog
+        </div>
+        <div class="card-body">
+            <div class="blog-details">
+                <div class="detail-item">
+                    <strong>Title:</strong>
+                    <a href="/blog/{{ object.pk }}/">{{ object.title }}</a>
+                </div>
+                <div class="detail-item">
+                    <strong>Author:</strong>
+                    <span>{{ object.author }}</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Articles:</strong>
+                    <ul>
+                        {% for article in articles %}
+                        <li><a href="/article/{{ article.pk }}/">{{ article.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            {% if user.is_authenticated %}
+            <p>
+                <a href="/article/add" class="btn btn-success m-5">Add New Article</a>
+            </p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
