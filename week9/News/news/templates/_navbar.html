@@ -1,40 +1,33 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+<li class="nav-item">
+    <a class="nav-link text-light" href="{% url 'superhero_list' %}">Superheroes</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-light" href="{% url 'article_list' %}">News Articles</a>
+</li>
 
-    <div class="container">
+{% if user.is_authenticated %}
+<li class="nav-item">
+    <a class="nav-link text-light" href="{% url 'article_add' %}">Add Article</a>
+</li>
+<li class="nav-item"></li>
+    <a class="nav-link text-light" href="#">Hello {{ user.username }}</a>
+</li>
+<li class="nav-item">
+    <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    <a class="nav-link text-light" href="#" onclick="document.getElementById('logout-form').submit();">Log out</a>
+</li>
 
-        <a class="navbar-brand text-light" href="/">Breaking News</a>
+{% else %}
 
-        <ul class="navbar-nav text-light ml-auto">
-            <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'author_list' %}">Authors</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'article_list' %}">News Articles</a>
-            </li>
+<li class="nav-item">
+    <a class="nav-link  text-light " href="{% url 'login' %}">Log In</a>
+</li>
 
-            {% if user.is_authenticated %}
+<li class="nav-item">
+    <a class="nav-link  text-light " href="{% url 'author_add' %}">Sign Up</a>
+</li>
 
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'logout' %}">Hello {{ user.username }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'logout' %}">Log out</a>
-            </li>
-
-            {% else %}
-
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'login' %}">Log In</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'author_add' %}">Sign Up</a>
-            </li>
-
-            {% endif %}
-
-        </ul>
-
-    </div>
-
-</nav>
+{% endif %}

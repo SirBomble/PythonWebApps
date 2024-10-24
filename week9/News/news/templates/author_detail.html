@@ -4,73 +4,54 @@
 
 <div class="container m-5">
 
-    <h1 class="text-primary">Author Details</h1>
+    <h1>Author Details</h1>
 
     <div class="container">
         <div class="row">
 
             <div class="col-lg">
 
-                <table class="table">
-                    <tr>
-                        <td><b>Author Name:</b></td>
-                        <td>
-                            {{ object.user.first_name }} {{ object.user.last_name }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Author Email:</b></td>
-                        <td>
-                            {{ object.user.email }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>User ID:</b></td>
-                        <td>
-                            {{ object.user.username }}</a>
-                    </tr>
-                    <tr>
-                        <td><b>Biography</b> </td>
-                        <td>{{ object.bio }}</td>
-                    </tr>
-                </table>
+                <div>
+                    <p><b>Author Name:</b> {{ object.user.first_name }} {{ object.user.last_name }}</p>
+                    <p><b>Author Email:</b> {{ object.user.email }}</p>
+                    <p><b>User ID:</b> {{ object.user.username }}</p>
+                    <p><b>Biography:</b> {{ object.bio }}</p>
+                </div>
 
             </div>
 
         </div>
     </div>
 
-    <a href="/author/" class="btn btn-success m-5">Author List</a>
-    <a href="/author/{{ object.pk }}/" class="btn btn-success m-5">Edit Author</a>
-    <a href="/author/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Author</a>
+    <a href="/author/" class="btn btn-secondary m-5">Author List</a>
+    {% if request.user == object.user or request.user.is_superuser %}
+        <a href="/author/{{ object.pk }}/" class="btn btn-secondary m-5">Edit Author</a>
+        <a href="/author/{{ object.pk }}/delete" class="btn btn-secondary m-5">Delete Author</a>
+    {% endif %}
 
     <div class="card m-5 p-5">
 
-        <h2 class="text-primary">List of Articles</h2>
+        <h2>List of Articles</h2>
 
-        <table class="table table-hover">
-            <tr>
-                <th>Article</th>
-                <th>Author</th>
-                <th>Edit</th>
-            </tr>
-
+        <div>
             {% for article in articles %}
-            <tr>
-                <td><a href="/article/{{ article.pk }}">{{ article.title }}</a></td>
-                <td><a href="/author/{{ article.author.pk }}">{{ article.author.user.username }}</a></td>
-                <td>
-                    <a href="/article/{{ article.pk }}/">Edit</a> /
-                    <a href="/article/{{ article.pk }}/delete">Delete</a>
-                </td>
-            </tr>
+                <div class="article-item">
+                    <p><a href="/article/{{ article.pk }}">{{ article.title }}</a> by <a href="/author/{{ article.author.pk }}">{{ article.author.user.username }}</a></p>
+                    {% if request.user == article.author.user or request.user.is_superuser %}
+                        <p>
+                            <a href="/article/{{ article.pk }}/">Edit</a> /
+                            <a href="/article/{{ article.pk }}/delete">Delete</a>
+                        </p>
+                    {% endif %}
+                </div>
             {% endfor %}
+        </div>
 
-        </table>
-
-        <p>
-            <a href="/article/add" class="btn btn-success m-5">Add New Article</a>
-        </p>
+        {% if request.user.is_authenticated %}
+            <p>
+                <a href="/article/add" class="btn btn-secondary m-5">Add New Article</a>
+            </p>
+        {% endif %}
 
     </div>
 </div>

@@ -7,14 +7,10 @@ Add New Article
 
 
 {% block content %}
-
+{% load crispy_forms_tags %}
 <form action="" method="post">
     {% csrf_token %}
-
-    <table>
-        {{ form.as_table }}
-    </table>
-
+    {{ form|crispy }}
     <button class="btn btn-primary mt-5" type="submit">Save Record</button>
 </form>
 

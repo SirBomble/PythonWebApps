@@ -40,12 +40,10 @@ class AuthorDetailView(DetailView):
         kwargs.update(list_articles(kwargs.get('object')))
         return kwargs
 
-
 class AuthorAddView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/account_add.html'
-
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "registration/account_edit.html"
