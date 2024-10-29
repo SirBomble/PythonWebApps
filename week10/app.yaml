@@ -1,0 +1,84 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+databases:
+- engine: PG
+  name: db
+domains:
+- domain: dosortaworks.galifrey.dev
+  type: PRIMARY
+envs:
+- key: DISABLE_COLLECTSTATIC
+  scope: RUN_AND_BUILD_TIME
+  value: "0"
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: pythonwebapps-student-02-profile
+    match:
+      path:
+        prefix: /
+  - component:
+      name: pythonwebapps-student-02-profil2
+    match:
+      path:
+        prefix: /static
+name: stingray-app
+region: nyc
+services:
+- environment_slug: python
+  envs:
+  - key: DATABASE_URL
+    scope: RUN_TIME
+    value: ${db.DATABASE_URL}
+  - key: POSTGRES_DB
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.DATABASE}
+  - key: POSTGRES_HOST
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.HOSTNAME}
+  - key: POSTGRES_USER
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.USERNAME}
+  - key: POSTGRES_PASSWORD
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.PASSWORD}
+  - key: POSTGRES_PORT
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.PORT}
+  - key: DATABASE_ENGINE
+    scope: RUN_AND_BUILD_TIME
+    value: django.db.backends.sqlite3
+  - key: DJANGO_SUPERUSER_EMAIL
+    scope: RUN_AND_BUILD_TIME
+    value: kevin@sirbomble.com
+  - key: DJANGO_SUPERUSER_USERNAME
+    scope: RUN_AND_BUILD_TIME
+    value: sirbomble
+  - key: DJANGO_SUPERUSER_PASSWORD
+    scope: RUN_AND_BUILD_TIME
+    type: SECRET
+    value: EV[1:IRIxjUyU0vs5aGviL6y4BVF7l6gI+ZiG:5ZLNA9YurFOwUgTZJg9P/6QygeTveeh0]
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: SirBomble/PythonWebApps
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: pythonwebapps-student-02-profile
+  run_command: |-
+    python manage.py createsuperuser --noinput
+    python manage.py migrate --no-input
+    gunicorn --worker-tmp-dir /dev/shm config.wsgi
+  source_dir: week10/News/
+static_sites:
+- environment_slug: html
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: SirBomble/PythonWebApps
+  name: pythonwebapps-student-02-profil2
+  source_dir: week10/News/static
