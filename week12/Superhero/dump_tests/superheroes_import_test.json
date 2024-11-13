@@ -1,0 +1,52 @@
+[
+    {
+        "id": 6,
+        "name": "Black Canary",
+        "identity": "Dinah Laurel Lance",
+        "description": "A master martial artist with a powerful sonic scream.",
+        "strength": "Martial Arts",
+        "weakness": "Sonic Feedback",
+        "image": "black_canary.jpg",
+        "investigator_id": 1
+    },
+    {
+        "id": 7,
+        "name": "Black Widow",
+        "identity": "Natasha Romanoff",
+        "description": "A former Russian spy with exceptional agility and strength.",
+        "strength": "Agility",
+        "weakness": "Trust Issues",
+        "image": "black_widow.jpg",
+        "investigator_id": 1
+    },
+    {
+        "id": 8,
+        "name": "Hulk",
+        "identity": "Bruce Banner",
+        "description": "A scientist who transforms into a powerful green monster.",
+        "strength": "Super Strength",
+        "weakness": "Anger Management",
+        "image": "hulk.jpg",
+        "investigator_id": 1
+    },
+    {
+        "id": 9,
+        "name": "Iron Man",
+        "identity": "Tony Stark",
+        "description": "A billionaire inventor with a powerful suit of armor.",
+        "strength": "Technology",
+        "weakness": "Ego",
+        "image": "iron_man.jpg",
+        "investigator_id": 1
+    },
+    {
+        "id": 10,
+        "name": "Spider-Pig",
+        "identity": "Peter Porker",
+        "description": "An anthropomorphic pig with spider-like powers.",
+        "strength": "Spider Powers",
+        "weakness": "Bacon",
+        "image": "spiderpig.jpg",
+        "investigator_id": 1
+    }
+]
