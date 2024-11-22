@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "investigator_id": 1,
+        "title": "Hello World",
+        "body": "# Welcome to hell\r\nYAY ```fuck```"
+    },
+    {
+        "id": 2,
+        "investigator_id": 1,
+        "title": "Wow this is neat",
+        "body": "# Super duper neato\r\n```echo hello world```"
+    }
+]

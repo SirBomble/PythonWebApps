@@ -1,0 +1,6 @@
+id,name,identity,description,strength,weakness,image,investigator
+1,Black Canary,Dinah Laurel Lance,A master martial artist with a powerful sonic scream.,Martial Arts,Sonic Feedback,black_canary.jpg,sirbomble
+2,Black Widow,Natasha Romanoff,A former Russian spy with exceptional agility and strength.,Agility,Trust Issues,black_widow.jpg,sirbomble
+3,Hulk,Bruce Banner,A scientist who transforms into a powerful green monster.,Super Strength,Anger Management,hulk.jpg,sirbomble
+4,Iron Man,Tony Stark,A billionaire inventor with a powerful suit of armor.,Technology,Ego,iron_man.jpg,sirbomble
+5,Spider-Pig,Peter Porker,An anthropomorphic pig with spider-like powers.,Spider Powers,Bacon,spiderpig.jpg,sirbomble
