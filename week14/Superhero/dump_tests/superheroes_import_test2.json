@@ -1,0 +1,12 @@
+[
+    {
+        "id": 6,
+        "name": "Black Canary",
+        "identity": "Dinah Laurel Lance",
+        "description": "A master martial artist with a powerful sonic scream.",
+        "strength": "Martial Arts",
+        "weakness": "Sonic Feedback",
+        "image": "black_canary.jpg",
+        "investigator_id": 1
+    }
+]
